@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2025!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(45deg, #ff6f61, #ff9966, #ffcc66, #66ff99, #6699ff, #9966ff);
+            background-size: 300% 300%;
+            animation: gradientAnimation 0.5s infinite alternate;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+
+        .container {
+            text-align: center;
+        }
+
+
+        .welcome {
+            animation: fadeIn 1.5s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .welcome h1 {
+            font-size: 3rem;
+            animation: pulse 2s infinite alternate;
+        }
+
+        .welcome p {
+            font-size: 1.2rem;
+            animation: bounce 1.5s infinite alternate;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            animation: slideUp 2s ease-in-out;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        input:focus {
+            transform: scale(1.1);
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #ff6f61;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: float 2s infinite alternate;
+        }
+
+        button:hover {
+            background-color: #ff9966;
+            transform: scale(1.1);
+        }
+
+
+        .wishes {
+            display: none;
+            animation: zoomIn 2s ease-in-out;
+            text-align: center;
+        }
+
+        .wishes h1 {
+            font-size: 3rem;
+            animation: glow 2s infinite alternate;
+        }
+
+
+        .from-text {
+            margin-top: 20px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            animation: oppositeColor 0.5s infinite alternate, fadeIn 4s ease-in-out;
+        }
+
+
+        @keyframes oppositeColor {
+            0% {
+                color: #0408f7;
+                text-shadow: 0 0 25px #030303;
+            }
+
+            20% {
+                color: #bef704;
+                text-shadow: 0 0 25px #fff;
+            }
+
+            60% {
+                color: #08f704;
+                text-shadow: 0 0 25px #f8db03;
+            }
+
+            100% {
+                color: #f80375;
+                text-shadow: 0 0 25px #01affa;
+            }
+        }
+
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff9966;
+            }
+
+            to {
+                text-shadow: 0 0 20px #ffcc66, 0 0 30px #66ff99;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Name Input Section -->
+        <div class="welcome" id="welcome">
+            <h1 class="fade-in">🎉 Welcome to 2025! 🎆</h1>
+            <p class="bounce">What's your name, dear friend?</p>
+            <div class="input-container">
+                <input type="text" id="nameInput" placeholder="Enter your name">
+                <button onclick="displayWishes()">Let's Celebrate!</button>
+            </div>
+        </div>
+
+        <!-- Wish Display Section -->
+        <div class="wishes" id="wishes">
+            <h1 id="wishText"></h1>
+            <p class="from-text">✌️😉From Prince Mishra</p>
+        </div>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        function displayWishes() {
+            const name = document.getElementById('nameInput').value.trim();
+            if (name === "") {
+                alert("Please enter your name to continue!");
+                return;
+            }
+
+            
+            document.getElementById('welcome').style.display = 'none';
+
+            
+            const wishesSection = document.getElementById('wishes');
+            wishesSection.style.display = 'block';
+
+            
+            const wishText = document.getElementById('wishText');
+            wishText.innerHTML = `🎆 Happy New Year 2025, <span style="color: #ffcc66;">${name}</span>! 🎇`;
+
+            playMusic()
+        }
+
+        function playMusic() {
+            bgMusic.play().catch(error => {
+                console.error("Failed to play music:", error);
+            });
+        }
+    </script>
+</body>
+
+</html>
